@@ -11,10 +11,15 @@ function TaskManager() {
   const [tasks, setTasks] = useState([])
 
   /* function to get all tasks from firestore in realtime */ 
+  
   useEffect(() => {
+    
     const taskColRef = query(collection(db, 'tasks'), orderBy('created', 'desc'))
     onSnapshot(taskColRef, (snapshot) => {
+      console.log("there run",snapshot.docs[0]);
+      
       setTasks(snapshot.docs.map(doc => ({
+        
         id: doc.id,
         data: doc.data()
       })))
@@ -23,7 +28,7 @@ function TaskManager() {
 
   return (
     <div className='taskManager'>
-      <header>Task Manager</header>
+      <header>To Do</header>
       <div className='taskManager__container'>
         <button 
           onClick={() => setOpenAddModal(true)}>

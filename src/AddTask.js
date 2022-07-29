@@ -13,6 +13,7 @@ function AddTask({onClose, open}) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
+      console.log("checked");
       await addDoc(collection(db, 'tasks'), {
         title: title,
         description: description,
@@ -21,7 +22,8 @@ function AddTask({onClose, open}) {
       })
       onClose()
     } catch (err) {
-      alert(err)
+      console.log("erroe",err);
+      // alert(err)
     }
   }
 

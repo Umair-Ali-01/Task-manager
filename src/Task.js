@@ -65,7 +65,7 @@ function Task({id, title, description, completed}) {
           </div>
           <button 
             onClick={() => setOpen({...open, view: true})}>
-            View
+            Read
           </button>
         </div>
       </div>
